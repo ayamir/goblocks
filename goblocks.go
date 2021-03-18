@@ -5,19 +5,17 @@ import (
 	"bytes"
 	"fmt"
 	"os"
-
-	/* "fmt" */
-	"io/ioutil"
-	"log"
 	"os/exec"
 
-	/* "runtime" */
+	"io/ioutil"
+	"log"
+
 	"strconv"
 	"strings"
 	"time"
 
 	"github.com/mackerelio/go-osstat/cpu"
-	/* "github.com/mackerelio/go-osstat/memory" */ /* "github.com/mackerelio/go-osstat/network" */)
+)
 
 const (
 	iconCPU  = " "
