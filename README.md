@@ -10,6 +10,10 @@ A simple status monitor for dwm written by go (use nord palette default).
 
 ![light](./shot/light.png)
 
++ Time icon changes as time goes on.
++ Battery icon changes with battery state.
++ Volume icon changes with volume state.
+
 ## Dependencies
 
 Your dwmbar font should be a [nerd font](https://github.com/ryanoasis/nerd-fonts).
@@ -36,3 +40,9 @@ Of course, you can change icons and colors easily.
 ## Credit
 
 [gods](https://github.com/schachmat/gods) give me the initial inspire.
+
+## TODO
+
+-   [ ] Clickable
+
+-   [ ] Scrollable
