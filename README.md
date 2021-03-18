@@ -12,9 +12,11 @@ A simple status monitor for dwm written by go (use nord palette default).
 
 ## Dependencies
 
-Your dwmbar font should be a nerd font.
+Your dwmbar font should be a [nerd font](https://github.com/ryanoasis/nerd-fonts).
 
 [pamixer](https://github.com/cdemoulins/pamixer) should be installed to get volume.
+
+[status2d](https://dwm.suckless.org/patches/status2d/) should be patched to display color.
 
 ## Usage
 
