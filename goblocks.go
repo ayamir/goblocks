@@ -27,7 +27,7 @@ const (
 )
 
 var (
-	iconTimeArr = [12]string{" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "}
+	iconTimeArr = [12]string{" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "}
 	iconBatArr  = [5]string{" ", " ", " ", " ", " "}
 	iconVolArr  = [4]string{"", "", "墳", " "}
 	netDevMap   = map[string]struct{}{
@@ -194,10 +194,10 @@ func updateBattery() string {
 	capacity := readFromFile(pathToBat0, "capacity")
 	isPlugged, _ := strconv.ParseBool(readFromFile(pathToAC, "online"))
 	if status == "Full" {
-		return iconBatArr[4] + " 100"
+		return iconBatArr[4] + " Full"
 	} else {
 		if isPlugged == true {
-			return getBatIcon(capacity) + "ing " + capacity
+			return getBatIcon(capacity) + " ing " + capacity
 		} else {
 			return getBatIcon(capacity) + " " + capacity
 		}
@@ -234,6 +234,7 @@ func updateDateTime() string {
 	var hour = time.Now().Hour()
 	var dateTime = time.Now().Local().Format("2006-01-02 Mon 15:04:05")
 
+	log.Println(getHourIcon(hour) + dateTime)
 	return getHourIcon(hour) + dateTime
 }
 
