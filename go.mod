@@ -1,4 +1,4 @@
-module goblocks
+module github.com/ayamir/goblocks
 
 go 1.16
 

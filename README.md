@@ -14,6 +14,8 @@ A simple status monitor for dwm written by go (use nord palette default).
 
 Your dwmbar font should be a nerd font.
 
+[pamixer](https://github.com/cdemoulins/pamixer) should be installed to get volume.
+
 ## Usage
 
 ```shell
