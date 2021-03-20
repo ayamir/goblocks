@@ -177,7 +177,10 @@ func cmdReturn(bin string, arg string) string {
 	var stdout, stderr bytes.Buffer
 	cmd.Stdout = &stdout
 	cmd.Stderr = &stderr
-	cmd.Run()
+	err := cmd.Run()
+	if err != nil {
+		log.Println(err)
+	}
 	res = strings.TrimSpace(string(stdout.Bytes()))
 
 	return res
