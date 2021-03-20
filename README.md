@@ -37,6 +37,12 @@ The source code is extremely simple so you can hack all of it.
 
 Of course, you can change icons and colors easily.
 
+You can find about more colors usage at [status2d](https://dwm.suckless.org/patches/status2d)'s webpage.
+
+Like this:
+
+![dark_bg](./shot/dark_bg.png)
+
 ## Credit
 
 [gods](https://github.com/schachmat/gods) give me the initial inspire.
