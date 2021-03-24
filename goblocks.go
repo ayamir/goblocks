@@ -93,13 +93,13 @@ func fmtNetSpeed(speed int) string {
 	var res string
 
 	switch {
-	case speed >= (1000 * 1000 * 1024):
-		gbSpeed := float64(speed / 1024.0 / 1000.0 / 1000.0)
+	case speed >= (1024 * 1024 * 1024):
+		gbSpeed := float64(speed / 1024.0 / 1024.0 / 1024.0)
 		res = fmt.Sprintf("%.1f", gbSpeed) + "GB"
-	case speed >= (1000 * 1024):
-		mbSpeed := float64(speed / 1024.0 / 1000.0)
+	case speed >= (1024 * 1024):
+		mbSpeed := float64(speed / 1024.0 / 1024.0)
 		res = fmt.Sprintf("%.1f", mbSpeed) + "MB"
-	case speed >= 1000:
+	case speed >= 1024:
 		kbSpeed := float64(speed / 1024.0)
 		res = fmt.Sprintf("%.1f", kbSpeed) + "KB"
 	case speed >= 0:
