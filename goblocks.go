@@ -40,17 +40,17 @@ var (
 func main() {
 	for {
 		status := []string{
-			"^c#d08070^",
+			"^b#d08070^",
 			updateNet(),
-			"^c#ebcb8b^",
+			"^b#ebcb8b^",
 			updateCPU(),
-			"^c#a3be8c^",
+			"^b#a3be8c^",
 			updateMem(),
-			"^c#5e81ac^",
+			"^b#5e81ac^",
 			updateVolume(),
-			"^c#88c0d0^",
+			"^b#88c0d0^",
 			updateBattery(),
-			"^c#b48ead^",
+			"^b#b48ead^",
 			updateDateTime(),
 		}
 		s := strings.Join(status, " ")
@@ -198,7 +198,7 @@ func updateBattery() string {
 		return iconBatArr[4] + " Full"
 	} else {
 		if isPlugged == true {
-			return getBatIcon(capacity) + " ing " + capacity
+			return getBatIcon(capacity) + "  " + capacity
 		} else {
 			return getBatIcon(capacity) + " " + capacity
 		}
