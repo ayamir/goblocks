@@ -24,11 +24,20 @@ Your dwmbar font should be a [nerd font](https://github.com/ryanoasis/nerd-fonts
 
 ## Usage
 
+If you need change the default settings:
+
 ```shell
 git clone https://github.com/ayamir/goblocks
 cd goblocks
 go build .
 goblocks &
+```
+
+Or just use the default configuration:
+
+```shell
+export $GOBIN=$HOME/go/bin
+go get -u github.com/ayamir/goblocks
 ```
 
 ## Configuration
@@ -48,6 +57,8 @@ Like this:
 [gods](https://github.com/schachmat/gods) give me the initial inspire.
 
 ## TODO
+
+-   [ ] Read Config files
 
 -   [ ] Clickable
 
