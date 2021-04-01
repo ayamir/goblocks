@@ -82,11 +82,11 @@ func getNetSpeed() (int, int) {
 func updateNet() string {
 	rxNow, txNow := getNetSpeed()
 	defer func() { rxOld, txOld = rxNow, txNow }()
-	return iconDown + fmtNetSpeed(rxNow-rxOld) + " " + iconUp + fmtNetSpeed(txNow-txOld)
+	return iconDown + fmtNetSpeed(float64(rxNow-rxOld)) + " " + iconUp + fmtNetSpeed(float64(txNow-txOld))
 
 }
 
-func fmtNetSpeed(speed int) string {
+func fmtNetSpeed(speed float64) string {
 	if speed < 0 {
 		log.Fatalln("Speed must be positive")
 	}
@@ -94,13 +94,13 @@ func fmtNetSpeed(speed int) string {
 
 	switch {
 	case speed >= (1024 * 1024 * 1024):
-		gbSpeed := float64(speed / 1024.0 / 1024.0 / 1024.0)
-		res = fmt.Sprintf("%.1f", gbSpeed) + "GB"
+		gbSpeed := speed / (1024.0 * 1024.0 * 1024.0)
+		res = fmt.Sprintf("%.2f", gbSpeed) + "GB"
 	case speed >= (1024 * 1024):
-		mbSpeed := float64(speed / 1024.0 / 1024.0)
+		mbSpeed := speed / (1024.0 * 1024.0)
 		res = fmt.Sprintf("%.1f", mbSpeed) + "MB"
 	case speed >= 1024:
-		kbSpeed := float64(speed / 1024.0)
+		kbSpeed := speed / 1024.0
 		res = fmt.Sprintf("%.1f", kbSpeed) + "KB"
 	case speed >= 0:
 		res = fmt.Sprint(speed) + "B"
