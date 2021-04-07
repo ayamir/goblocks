@@ -24,6 +24,8 @@ Your dwmbar font should be a [nerd font](https://github.com/ryanoasis/nerd-fonts
 
 ## Usage
 
+You should change default network interface settings in config.toml to adjust your machine.
+
 If you need change the default settings:
 
 ```shell
