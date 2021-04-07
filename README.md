@@ -29,6 +29,8 @@ If you need change the default settings:
 ```shell
 git clone https://github.com/ayamir/goblocks
 cd goblocks
+mkdir -p $HOME/.config/goblocks
+cp config.toml $HOME/.config/goblocks
 go build .
 goblocks &
 ```
@@ -36,8 +38,14 @@ goblocks &
 Or just use the default configuration:
 
 ```shell
+git clone https://github.com/ayamir/goblocks
+cd goblocks
+mkdir -p $HOME/.config/goblocks
+cp config.toml $HOME/.config/goblocks
 export $GOBIN=$HOME/go/bin
+export PATH=$GOPATH:$PATH
 go get -u github.com/ayamir/goblocks
+goblocks &
 ```
 
 ## Configuration
@@ -58,7 +66,9 @@ Like this:
 
 ## TODO
 
--   [ ] Read Config files
+-   [-] Read Config files
+        [X] Read network interface configuration
+        [ ] Read color configuration
 
 -   [ ] Clickable
 
