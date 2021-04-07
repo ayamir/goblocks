@@ -90,7 +90,7 @@ You can find about more colors usage at [status2d](<https://dwm.suckless.org/pat
 
 Like this:
 
-[darkbg](./shot/dark_bg.png)
+![darkbg](./shot/dark_bg.png)
 
 
 <a id="org42b387b"></a>
@@ -104,7 +104,7 @@ Like this:
 
 ## TODO
 
--   [-] Read Config file <code>[50%]</code>
+-   [-] Read Config file
     -   [X] Network interface
     -   [-] Display color style
 -   [ ] Clickable
