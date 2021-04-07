@@ -15,6 +15,7 @@ import (
 	"time"
 
 	"github.com/mackerelio/go-osstat/cpu"
+	"github.com/pelletier/go-toml"
 )
 
 const (
@@ -28,16 +29,14 @@ var (
 	iconTimeArr = [12]string{" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "}
 	iconBatArr  = [5]string{" ", " ", " ", " ", " "}
 	iconVolArr  = [4]string{"", "", "墳", " "}
-	netDevMap   = map[string]struct{}{
-		"enp2s0:": {},
-		"wlp3s0:": {},
-	}
-	cpuOld, _ = cpu.Get()
-	rxOld     = 0
-	txOld     = 0
+	netDevMap   = map[string]struct{}{}
+	cpuOld, _   = cpu.Get()
+	rxOld       = 0
+	txOld       = 0
 )
 
 func main() {
+	parseConfig()
 	for {
 		status := []string{
 			"^b#d08070^",
@@ -191,9 +190,9 @@ func updateBattery() string {
 	var pathToBat0 = pathToPowerSupply + "BAT0/"
 	var pathToAC = pathToPowerSupply + "AC/"
 
-	status := readFromFile(pathToBat0, "status")
-	capacity := readFromFile(pathToBat0, "capacity")
-	isPlugged, _ := strconv.ParseBool(readFromFile(pathToAC, "online"))
+	status := parseTxt(pathToBat0, "status")
+	capacity := parseTxt(pathToBat0, "capacity")
+	isPlugged, _ := strconv.ParseBool(parseTxt(pathToAC, "online"))
 	if status == "Full" {
 		return iconBatArr[4] + " Full"
 	} else {
@@ -220,7 +219,7 @@ func getBatIcon(capacity string) string {
 	return res
 }
 
-func readFromFile(path string, name string) string {
+func parseTxt(path string, name string) string {
 	var res string
 	contentOri, err := ioutil.ReadFile(path + name)
 	if err != nil {
@@ -229,6 +228,26 @@ func readFromFile(path string, name string) string {
 	res = strings.TrimSpace(string(contentOri))
 
 	return res
+}
+
+func parseConfig() {
+	dirname, err := os.UserHomeDir()
+	if err != nil {
+		log.Fatalln(err)
+	}
+	path := dirname + "/.config/goblocks/config.toml"
+
+	content, err := ioutil.ReadFile(path)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	config, _ := toml.Load(string(content))
+	wlan := config.Get("networks.wlan").(string) + ":"
+	lan := config.Get("networks.lan").(string) + ":"
+
+	netDevMap[wlan] = struct{}{}
+	netDevMap[lan] = struct{}{}
 }
 
 func updateDateTime() string {

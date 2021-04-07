@@ -1,0 +1,3 @@
+[networks]
+wlan = "wlp3s0"
+lan = "enp2s0"
