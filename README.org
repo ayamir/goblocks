@@ -6,9 +6,9 @@ A simple status monitor for dwm written by go (use nord palette default).
 
 ** Effect
 
-[[./shot/dark.png][dark]]
+[[file:./shot/dark.png][dark]]
 
-[[./shot/light.png][light]]
+[[file:./shot/light.png][light]]
 
 + Time icon changes as time goes on.
 + Battery icon changes with battery state.
@@ -60,7 +60,7 @@ You can find about more colors usage at [status2d](https://dwm.suckless.org/patc
 
 Like this:
 
-[[./shot/dark_bg.png][darkbg]]
+[[file:./shot/dark_bg.png][darkbg]]
 
 ** Credit
 
