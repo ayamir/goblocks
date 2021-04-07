@@ -78,73 +78,91 @@
               
               <article class="markdown-body entry-content" itemprop="text" id="grip-content">
                 <h1>
+<a id="user-content-table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h1>
+<ol>
+<li>
+<a href="#org0142123">Goblocks</a>
+<ol>
+<li><a href="#orge95f8a7">Intro</a></li>
+<li><a href="#org3e6eda6">Effect</a></li>
+<li><a href="#org3364a0e">Dependency</a></li>
+<li><a href="#org8332fc6">Usage</a></li>
+<li><a href="#org10952e5">Configuration</a></li>
+<li><a href="#orgd7b1c3b">Credit</a></li>
+</ol>
+</li>
+<li><a href="#orga1f69f6"><code>[0%]</code></a></li>
+</ol>
+<p><a id="user-content-org0142123"></a></p>
+<h1>
 <a id="user-content-goblocks" class="anchor" href="#goblocks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Goblocks</h1>
+<p><a id="user-content-orge95f8a7"></a></p>
 <h2>
 <a id="user-content-intro" class="anchor" href="#intro" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Intro</h2>
 <p>A simple status monitor for dwm written by go (use nord palette default).</p>
+<p><a id="user-content-org3e6eda6"></a></p>
 <h2>
 <a id="user-content-effect" class="anchor" href="#effect" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Effect</h2>
-<p><a href="./shot/dark.png" target="_blank" rel="noopener noreferrer"><img src="./shot/dark.png" alt="dark" style="max-width:100%;"></a></p>
-<p><a href="./shot/light.png" target="_blank" rel="noopener noreferrer"><img src="./shot/light.png" alt="light" style="max-width:100%;"></a></p>
+<p><a href="./shot/dark.png">dark</a></p>
+<p><a href="./shot/light.png">light</a></p>
 <ul>
 <li>Time icon changes as time goes on.</li>
 <li>Battery icon changes with battery state.</li>
 <li>Volume icon changes with volume state.</li>
 </ul>
+<p><a id="user-content-org3364a0e"></a></p>
 <h2>
-<a id="user-content-dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
+<a id="user-content-dependency" class="anchor" href="#dependency" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependency</h2>
 <p>Your dwmbar font should be a <a href="https://github.com/ryanoasis/nerd-fonts">nerd font</a>.</p>
 <p><a href="https://github.com/cdemoulins/pamixer">pamixer</a> should be installed to get volume.</p>
 <p><a href="https://dwm.suckless.org/patches/status2d/" rel="nofollow">status2d</a> should be patched to display color.</p>
+<p><a id="user-content-org8332fc6"></a></p>
 <h2>
 <a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 <p>You should change default network interface settings in config.toml to adjust your machine.</p>
 <p>If you need change the default settings:</p>
-<div class="highlight highlight-source-shell"><pre>git clone https://github.com/ayamir/goblocks
-<span class="pl-c1">cd</span> goblocks
-mkdir -p <span class="pl-smi">$HOME</span>/.config/goblocks
-cp config.toml <span class="pl-smi">$HOME</span>/.config/goblocks
-go build <span class="pl-c1">.</span>
-goblocks <span class="pl-k">&amp;</span></pre></div>
+<pre><code>git clone https://github.com/ayamir/goblocks
+cd goblocks
+mkdir -p $HOME/.config/goblocks
+cp config.toml $HOME/.config/goblocks
+go build .
+goblocks &amp;
+</code></pre>
 <p>Or just use the default configuration:</p>
-<div class="highlight highlight-source-shell"><pre>git clone https://github.com/ayamir/goblocks
-<span class="pl-c1">cd</span> goblocks
-mkdir -p <span class="pl-smi">$HOME</span>/.config/goblocks
-cp config.toml <span class="pl-smi">$HOME</span>/.config/goblocks
-<span class="pl-k">export</span> <span class="pl-smi">$GOBIN</span>=<span class="pl-smi">$HOME</span>/go/bin
-<span class="pl-k">export</span> PATH=<span class="pl-smi">$GOPATH</span>:<span class="pl-smi">$PATH</span>
+<pre><code>git clone https://github.com/ayamir/goblocks
+cd goblocks
+mkdir -p $HOME/.config/goblocks
+cp config.toml $HOME/.config/goblocks
+export $GOBIN=$HOME/go/bin
+export PATH=$GOPATH:$PATH
 go get -u github.com/ayamir/goblocks
-goblocks <span class="pl-k">&amp;</span></pre></div>
+goblocks &amp;
+</code></pre>
+<p><a id="user-content-org10952e5"></a></p>
 <h2>
 <a id="user-content-configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h2>
 <p>The source code is extremely simple so you can hack all of it.</p>
 <p>Of course, you can change icons and colors easily.</p>
-<p>You can find about more colors usage at <a href="https://dwm.suckless.org/patches/status2d" rel="nofollow">status2d</a>'s webpage.</p>
+<p>You can find about more colors usage at <a href="https://dwm.suckless.org/patches/status2d" rel="nofollow">status2d</a>’s webpage.</p>
 <p>Like this:</p>
-<p><a href="./shot/dark_bg.png" target="_blank" rel="noopener noreferrer"><img src="./shot/dark_bg.png" alt="dark_bg" style="max-width:100%;"></a></p>
+<p><a href="./shot/dark_bg.png">dark<sub>bg</sub></a></p>
+<p><a id="user-content-orgd7b1c3b"></a></p>
 <h2>
 <a id="user-content-credit" class="anchor" href="#credit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credit</h2>
 <p><a href="https://github.com/schachmat/gods">gods</a> give me the initial inspire.</p>
-<h2>
-<a id="user-content-todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h2>
+<p><a id="user-content-orga1f69f6"></a></p>
+<h1>
+<a id="user-content-todo-0" class="anchor" href="#todo-0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO <code>[0%]</code>
+</h1>
 <ul>
-<li>
-<p>[-] Read Config files</p>
+<li>[-] Read Config file <code>[50%]</code>
+<ul>
+<li>[X] Network interface</li>
+<li>[-] Display color style</li>
+</ul>
 </li>
-<li>
-<pre><code>  [X] Read network interface configuration
-</code></pre>
-</li>
-<li>
-<pre><code>  [ ] Read color configuration
-</code></pre>
-</li>
-<li>
-<p>[ ] Clickable</p>
-</li>
-<li>
-<p>[ ] Scrollable</p>
-</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled=""> Clickable</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled=""> Scrollable</li>
 </ul>
 
               </article>
