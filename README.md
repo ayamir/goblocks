@@ -69,8 +69,10 @@ Like this:
 ## TODO
 
 -   [-] Read Config files
-        [X] Read network interface configuration
-        [ ] Read color configuration
+
+-       [X] Read network interface configuration
+
+-       [ ] Read color configuration
 
 -   [ ] Clickable
 
