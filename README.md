@@ -106,7 +106,7 @@ Like this:
 
 -   [-] Read Config file
     -   [X] Network interface
-    -   [-] Display color style
+    -   [X] Display color style
 -   [ ] Clickable
 -   [ ] Scrollable
 
