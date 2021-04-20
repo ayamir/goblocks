@@ -33,30 +33,42 @@ var (
 	cpuOld, _   = cpu.Get()
 	rxOld       = 0
 	txOld       = 0
+	style       = "background"
 )
 
 func main() {
 	parseConfig()
 	for {
-		status := []string{
-			"^b#d08070^",
-			updateNet(),
-			"^b#ebcb8b^",
-			updateCPU(),
-			"^b#a3be8c^",
-			updateMem(),
-			"^b#5e81ac^",
-			updateVolume(),
-			"^b#88c0d0^",
-			updateBattery(),
-			"^b#b48ead^",
-			updateDateTime(),
-		}
+		status := setStyle(style)
 		s := strings.Join(status, " ")
 		exec.Command("xsetroot", "-name", s).Run()
 
 		var now = time.Now()
 		time.Sleep(now.Truncate(time.Second).Add(time.Second).Sub(now))
+	}
+}
+
+func setStyle(style string) []string {
+	var briefStyle string
+	if style == "background" {
+		briefStyle = "^b"
+	} else {
+		briefStyle = "^c"
+	}
+
+	return []string{
+		briefStyle + "#d08070^",
+		updateNet(),
+		briefStyle + "#ebcb8b^",
+		updateCPU(),
+		briefStyle + "#a3be8c^",
+		updateMem(),
+		briefStyle + "#5e81ac^",
+		updateVolume(),
+		briefStyle + "#88c0d0^",
+		updateBattery(),
+		briefStyle + "#b48ead^",
+		updateDateTime(),
 	}
 }
 
@@ -245,6 +257,8 @@ func parseConfig() {
 	config, _ := toml.Load(string(content))
 	wlan := config.Get("networks.wlan").(string) + ":"
 	lan := config.Get("networks.lan").(string) + ":"
+
+	style = config.Get("color.style").(string)
 
 	netDevMap[wlan] = struct{}{}
 	netDevMap[lan] = struct{}{}

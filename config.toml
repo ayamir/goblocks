@@ -1,3 +1,8 @@
 [networks]
+# You can get your interface by executing `ip addr`
 wlan = "wlp3s0"
 lan = "enp2s0"
+
+[color]
+# background or foreground
+style = "background"
