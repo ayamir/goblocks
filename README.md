@@ -104,7 +104,7 @@ Like this:
 
 ## TODO
 
--   [-] Read Config file
+-   [X] Read Config file
     -   [X] Network interface
     -   [X] Display color style
 -   [ ] Clickable
