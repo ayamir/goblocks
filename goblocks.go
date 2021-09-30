@@ -34,6 +34,12 @@ var (
 	rxOld       = 0
 	txOld       = 0
 	style       = "background"
+	netColor    = "#d08070"
+	cpuColor    = "#ebcb8b"
+	memColor    = "#a3be8c"
+	volColor    = "#5e81ac"
+	batColor    = "#88c0d0"
+	datColor    = "#b48ead"
 )
 
 func main() {
@@ -57,17 +63,17 @@ func setStyle(style string) []string {
 	}
 
 	return []string{
-		briefStyle + "#d08070^",
+		briefStyle + netColor + "^",
 		updateNet(),
-		briefStyle + "#ebcb8b^",
+		briefStyle + cpuColor + "^",
 		updateCPU(),
-		briefStyle + "#a3be8c^",
+		briefStyle + memColor + "^",
 		updateMem(),
-		briefStyle + "#5e81ac^",
+		briefStyle + volColor + "^",
 		updateVolume(),
-		briefStyle + "#88c0d0^",
+		briefStyle + batColor + "^",
 		updateBattery(),
-		briefStyle + "#b48ead^",
+		briefStyle + datColor + "^",
 		updateDateTime(),
 	}
 }
@@ -259,6 +265,12 @@ func parseConfig() {
 	lan := config.Get("networks.lan").(string) + ":"
 
 	style = config.Get("color.style").(string)
+    netColor = config.Get("color.netColor").(string)
+    cpuColor = config.Get("color.cpuColor").(string)
+    memColor = config.Get("color.memColor").(string)
+    volColor = config.Get("color.volColor").(string)
+    batColor = config.Get("color.batColor").(string)
+    datColor = config.Get("color.datColor").(string)
 
 	netDevMap[wlan] = struct{}{}
 	netDevMap[lan] = struct{}{}

@@ -1,8 +1,14 @@
 [networks]
-# You can get your interface by executing `ip addr`
 wlan = "wlp3s0"
 lan = "enp2s0"
 
 [color]
 # background or foreground
 style = "background"
+
+netColor = "#d08070"
+cpuColor = "#ebcb8b"
+memColor = "#a3be8c"
+volColor = "#5e81ac"
+batColor = "#88c0d0"
+datColor = "#b48ead"
