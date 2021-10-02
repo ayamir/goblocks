@@ -64,20 +64,6 @@ go build .
 goblocks &
 ```
 
-Or just use the default configuration:
-
-```shell
-git clone https://github.com/ayamir/goblocks
-cd goblocks
-mkdir -p $HOME/.config/goblocks
-cp config.toml $HOME/.config/goblocks
-export $GOBIN=$HOME/go/bin
-export PATH=$GOPATH:$PATH
-go get -u github.com/ayamir/goblocks
-goblocks &
-```
-
-
 <a id="orga794274"></a>
 
 ## Configuration
