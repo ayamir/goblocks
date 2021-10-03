@@ -33,6 +33,8 @@ var (
 	cpuOld, _   = cpu.Get()
 	rxOld       = 0
 	txOld       = 0
+	wlan        = "wlan0"
+	lan         = "enp2s0"
 	style       = "background"
 	netColor    = "#d08070"
 	cpuColor    = "#ebcb8b"
@@ -261,16 +263,16 @@ func parseConfig() {
 	}
 
 	config, _ := toml.Load(string(content))
-	wlan := config.Get("networks.wlan").(string) + ":"
-	lan := config.Get("networks.lan").(string) + ":"
+	wlan = config.Get("networks.wlan").(string) + ":"
+	lan = config.Get("networks.lan").(string) + ":"
 
 	style = config.Get("color.style").(string)
-    netColor = config.Get("color.netColor").(string)
-    cpuColor = config.Get("color.cpuColor").(string)
-    memColor = config.Get("color.memColor").(string)
-    volColor = config.Get("color.volColor").(string)
-    batColor = config.Get("color.batColor").(string)
-    datColor = config.Get("color.datColor").(string)
+	netColor = config.Get("color.netColor").(string)
+	cpuColor = config.Get("color.cpuColor").(string)
+	memColor = config.Get("color.memColor").(string)
+	volColor = config.Get("color.volColor").(string)
+	batColor = config.Get("color.batColor").(string)
+	datColor = config.Get("color.datColor").(string)
 
 	netDevMap[wlan] = struct{}{}
 	netDevMap[lan] = struct{}{}
