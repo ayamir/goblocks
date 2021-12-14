@@ -166,8 +166,8 @@ func updateCPU() string {
 
 func updateVolume() string {
 	const pamixer = "pamixer"
-	isMuted, _ := strconv.ParseBool(cmdReturn(pamixer, "--get-mute"))
-	volume := cmdReturn(pamixer, "--get-volume")
+	isMuted, _ := strconv.ParseBool(cmdReturn(pamixer, "--get-mute", false))
+	volume := cmdReturn(pamixer, "--get-volume", true)
 	if isMuted {
 		return iconVolArr[0]
 	} else {
@@ -190,7 +190,7 @@ func getVolIcon(volume string) string {
 	return res
 }
 
-func cmdReturn(bin string, arg string) string {
+func cmdReturn(bin string, arg string, output bool) string {
 	var res string
 	cmd := exec.Command(bin, arg)
 	var stdout, stderr bytes.Buffer
@@ -198,7 +198,9 @@ func cmdReturn(bin string, arg string) string {
 	cmd.Stderr = &stderr
 	err := cmd.Run()
 	if err != nil {
-		log.Println(err)
+		if output{
+			log.Println(err)
+		}
 	}
 	res = strings.TrimSpace(string(stdout.Bytes()))
 
