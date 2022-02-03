@@ -89,7 +89,7 @@ func getNetSpeed() (int, int) {
 
 	devName, rx, tx, rxNow, txNow, void := "", 0, 0, 0, 0, 0
 	for scanner := bufio.NewScanner(dev); scanner.Scan(); {
-		_, err = fmt.Sscanf(scanner.Text(), "%s %d %d %d %d %d %d %d %d %d", &devName, &rx, &void, &void, &void, &void, &void, &void, &void, &tx)
+		_, _ = fmt.Sscanf(scanner.Text(), "%s %d %d %d %d %d %d %d %d %d", &devName, &rx, &void, &void, &void, &void, &void, &void, &void, &tx)
 		if _, ok := netDevMap[devName]; ok {
 			rxNow += rx
 			txNow += tx
@@ -196,11 +196,11 @@ func cmdReturn(bin string, arg string) string {
 	var stdout, stderr bytes.Buffer
 	cmd.Stdout = &stdout
 	cmd.Stderr = &stderr
-	err := cmd.Run()
-	if err != nil {
-		log.Println(err)
-	}
-	res = strings.TrimSpace(string(stdout.Bytes()))
+	cmd.Run()
+	// if err != nil {
+	// 	log.Println(err)
+	// }
+	res = strings.TrimSpace(stdout.String())
 
 	return res
 }
@@ -216,7 +216,7 @@ func updateBattery() string {
 	if status == "Full" {
 		return iconBatArr[4] + " Full"
 	} else {
-		if isPlugged == true {
+		if isPlugged {
 			return getBatIcon(capacity) + "  " + capacity
 		} else {
 			return getBatIcon(capacity) + " " + capacity
