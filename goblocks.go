@@ -276,8 +276,8 @@ func parseConfig() {
 	batColor = config.Get("color.batColor").(string)
 	datColor = config.Get("color.datColor").(string)
 
-	netDevMap[wlan] = struct{}{}
-	netDevMap[lan] = struct{}{}
+	netDevMap[wlan + ":"] = struct{}{}
+	netDevMap[lan + ":"] = struct{}{}
 }
 
 func updateDateTime() string {
