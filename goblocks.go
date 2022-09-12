@@ -101,7 +101,7 @@ func getNetSpeed() (int, int) {
 func updateNet() string {
 	rxNow, txNow := getNetSpeed()
 	defer func() { rxOld, txOld = rxNow, txNow }()
-	return iconDown + fmtNetSpeed(float64(rxNow-rxOld)) + " " + iconUp + fmtNetSpeed(float64(txNow-txOld))
+	return iconDown + fmtNetSpeed(float64(rxNow-rxOld))
 
 }
 
