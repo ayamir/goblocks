@@ -171,7 +171,7 @@ func updateVolume() string {
 	if isMuted {
 		return iconVolArr[0]
 	} else {
-		return getVolIcon(volume) + " " + volume
+		return getVolIcon(volume) + " " + volume + "%"
 	}
 }
 
