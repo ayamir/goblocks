@@ -210,7 +210,7 @@ func cmdReturn(bin string, arg string, output bool) string {
 func updateBattery() string {
 	const pathToPowerSupply = "/sys/class/power_supply/"
 	var pathToBat0 = pathToPowerSupply + "BAT0/"
-	var pathToAC = pathToPowerSupply + "AC/"
+	var pathToAC = pathToPowerSupply + "AC0/"
 
 	status := parseTxt(pathToBat0, "status")
 	capacity := parseTxt(pathToBat0, "capacity")
@@ -219,9 +219,12 @@ func updateBattery() string {
 		return iconBatArr[4] + " Full"
 	} else {
 		if isPlugged {
-			return getBatIcon(capacity) + "  " + capacity
+			if capacityInt, _ := strconv.Atoi(capacity); capacityInt == 100 {
+				return getBatIcon(capacity) + capacity + "%"
+			}
+			return getBatIcon(capacity) + "  " + capacity + "%"
 		} else {
-			return getBatIcon(capacity) + " " + capacity
+			return getBatIcon(capacity) + " " + capacity + "%"
 		}
 	}
 }
@@ -229,7 +232,9 @@ func updateBattery() string {
 func getBatIcon(capacity string) string {
 	var res string
 	capacityInt, _ := strconv.ParseInt(capacity, 10, 32)
-	if capacityInt >= 75 {
+	if capacityInt == 100 {
+		res = iconBatArr[4]
+	} else if capacityInt >= 75 {
 		res = iconBatArr[3]
 	} else if capacityInt > 50 {
 		res = iconBatArr[2]
